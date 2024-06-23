@@ -49,7 +49,7 @@ const App = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="bg-gray-800 p-4 sticky top-0 z-50">
+      <nav className="bg-gray-900 bg-opacity-90 backdrop-blur p-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-white text-2xl font-bold">Logo</div>
           <div className="md:hidden">
@@ -454,7 +454,7 @@ const App = () => {
             </a>
           </div>
         </div>
-
+        <hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></hr>
         {/* Bottom */}
         <div className="pt-2">
           <div
