@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { FaUsers, FaBuilding, FaTools } from "react-icons/fa";
 import { FaRegNewspaper } from "react-icons/fa";
+import { FaQuoteLeft, FaQuoteRight, FaUserCircle } from "react-icons/fa";
+import { FaCode, FaPaintBrush, FaMobileAlt } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import "./App.css";
 
 const BackToTopIcon = () => (
@@ -17,7 +21,73 @@ const BackToTopIcon = () => (
   </svg>
 );
 
+const testimonies = [
+  {
+    id: 1,
+    name: "John Doe",
+    testimony: "This is the best service I have ever used!",
+    role: "CEO, Company A",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    testimony: "Absolutely wonderful! I am so happy with the results!",
+    role: "Marketing Manager, Company B",
+  },
+  {
+    id: 3,
+    name: "Michael Brown",
+    testimony: "Highly recommend to everyone. Great experience!",
+    role: "Freelancer",
+  },
+];
+
+const services = [
+  {
+    id: 1,
+    icon: <FaCode className="text-indigo-500 text-4xl mb-4" />,
+    title: "Web Development",
+    description:
+      "We provide high-quality web development services to help you build scalable and robust web applications.",
+  },
+  {
+    id: 2,
+    icon: <FaPaintBrush className="text-indigo-500 text-4xl mb-4" />,
+    title: "Graphic Design",
+    description:
+      "Our creative graphic design services help you communicate your brand's message effectively.",
+  },
+  {
+    id: 3,
+    icon: <FaMobileAlt className="text-indigo-500 text-4xl mb-4" />,
+    title: "Mobile Development",
+    description:
+      "We create mobile applications that offer an intuitive and seamless user experience.",
+  },
+];
+
+const faqs = [
+  {
+    id: 1,
+    question: "What services do you offer?",
+    answer:
+      "We offer a wide range of services including web development, graphic design, and mobile development.",
+  },
+  {
+    id: 2,
+    question: "How can I contact you?",
+    answer:
+      "You can contact us through our website's contact form or by emailing us at contact@example.com.",
+  },
+  {
+    id: 3,
+    question: "What are your business hours?",
+    answer: "Our business hours are Monday to Friday, 9 AM to 5 PM.",
+  },
+];
+
 const App = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
   const blogPosts = [
     {
       id: 1,
@@ -38,6 +108,14 @@ const App = () => {
         "Keamanan data menjadi krusial di era digital saat ini. Pelajari mengapa melindungi data penting untuk bisnis dan individu.",
     },
   ];
+
+  const toggleFAQ = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null);
+    } else {
+      setActiveIndex(index);
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -82,8 +160,18 @@ const App = () => {
               </a>
             </li>
             <li>
+              <a href="#services" className="text-white hover:text-gray-300">
+                Services
+              </a>
+            </li>
+            <li>
               <a href="#blog" className="text-white hover:text-gray-300">
                 Blog
+              </a>
+            </li>
+            <li>
+              <a href="#testimony" className="text-white hover:text-gray-300">
+                Testimony
               </a>
             </li>
             <li>
@@ -121,7 +209,7 @@ const App = () => {
                 </a>
                 <a
                   href="#"
-                  className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+                  className="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 ring-1 ring-gray-400/15 hover:ring-gray-500/20"
                 >
                   Read the guide
                   <span aria-hidden="true" className="text-gray-400">
@@ -201,6 +289,25 @@ const App = () => {
         </div>
       </div>
 
+      {/* Services section */}
+      <div id="services" className="bg-gray-800 py-12">
+        <h2 className="text-3xl font-bold text-center mb-8 text-white">
+          Our Services
+        </h2>
+        <div className="flex flex-wrap justify-center gap-6">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="bg-white p-6 rounded-lg shadow-md w-80 text-center"
+            >
+              {service.icon}
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-gray-700">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Blog Section */}
       <div id="blog" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -238,6 +345,62 @@ const App = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Testimony section */}
+      <div id="testimony" className="bg-gray-800 py-12">
+        <h2 className="text-3xl font-bold text-center mb-8 text-white">
+          What Our Clients Say
+        </h2>
+        <div className="flex flex-wrap justify-center gap-6">
+          {testimonies.map((testimony) => (
+            <div
+              key={testimony.id}
+              className="bg-white p-6 rounded-lg shadow-md w-80 relative"
+            >
+              <FaQuoteLeft className="text-gray-500 text-3xl absolute -top-3 -left-3" />
+              <p className="text-gray-700 mb-4">{testimony.testimony}</p>
+              <FaQuoteRight className="text-gray-500 text-3xl absolute -bottom-3 -right-3" />
+              <div className="flex items-center mt-4">
+                <FaUserCircle className="text-gray-400 text-3xl mr-3" />
+                <div>
+                  <h3 className="font-semibold">{testimony.name}</h3>
+                  <p className="text-gray-500 text-sm">{testimony.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ section */}
+      <div className="bg-gray-800 py-12">
+        <h2 className="text-3xl font-bold text-center mb-8 text-white">
+          Frequently Asked Questions
+        </h2>
+        <div className="max-w-3xl mx-auto">
+          {faqs.map((faq, index) => (
+            <div
+              key={faq.id}
+              className="bg-white mb-4 p-4 rounded-lg shadow-md"
+            >
+              <div
+                className="flex justify-between items-center cursor-pointer"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h3 className="text-xl font-semibold">{faq.question}</h3>
+                {activeIndex === index ? (
+                  <FaMinus className="text-indigo-500" />
+                ) : (
+                  <FaPlus className="text-indigo-500" />
+                )}
+              </div>
+              {activeIndex === index && (
+                <p className="text-gray-700 mt-2">{faq.answer}</p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
