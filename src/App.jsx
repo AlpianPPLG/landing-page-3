@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { FaUsers, FaBuilding, FaTools } from "react-icons/fa";
 import { FaRegNewspaper } from "react-icons/fa";
 import { FaQuoteLeft, FaQuoteRight, FaUserCircle } from "react-icons/fa";
@@ -124,6 +127,12 @@ const App = () => {
     });
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // durasi animasi dalam milidetik
+    });
+  }, []);
+
   return (
     <>
       {/* Navbar */}
@@ -188,16 +197,27 @@ const App = () => {
         <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
           <div>
             <div>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl dark:text-gray-100">
+              <h1
+                className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl dark:text-gray-100"
+                data-aos="fade-up"
+              >
                 Title of your website
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center dark:text-gray-200">
+              <p
+                className="mt-6 text-lg leading-8 text-gray-600 sm:text-center dark:text-gray-200"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
               </p>
-              <div className="mt-8 flex gap-x-4 sm:justify-center">
+              <div
+                className="mt-8 flex gap-x-4 sm:justify-center"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
                 <a
                   href="#"
                   className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
@@ -226,13 +246,24 @@ const App = () => {
       <div id="about" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="font-heading mb-4 bg-orange-100 text-orange-800 px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest  uppercase title-font">
+            <h2
+              className="font-heading mb-4 bg-orange-100 text-orange-800 px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest uppercase title-font"
+              data-aos="fade-up"
+            >
               Tentang Kami
             </h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+            <p
+              className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               Siap Melayani Anda dengan Layanan Terbaik
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p
+              className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
               Kami adalah perusahaan yang berkomitmen untuk memberikan solusi
               terbaik untuk kebutuhan Anda. Dengan tim yang berpengalaman dan
               dedikasi tinggi, kami siap melayani Anda dalam berbagai aspek
@@ -243,7 +274,11 @@ const App = () => {
           <div className="mt-10">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-10">
               {/* Card 1 */}
-              <div className="rounded-lg shadow-lg overflow-hidden flex items-center">
+              <div
+                className="rounded-lg shadow-lg overflow-hidden flex items-center"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
                 <div className="p-6">
                   <FaUsers className="text-6xl text-white mb-4" />
                   <h3 className="text-lg font-semibold text-white">
@@ -258,7 +293,11 @@ const App = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="rounded-lg shadow-lg overflow-hidden flex items-center">
+              <div
+                className="rounded-lg shadow-lg overflow-hidden flex items-center"
+                data-aos="fade-up"
+                data-aos-delay="800"
+              >
                 <div className="p-6">
                   <FaBuilding className="text-6xl text-white mb-4" />
                   <h3 className="text-lg font-semibold text-white">
@@ -272,7 +311,11 @@ const App = () => {
               </div>
 
               {/* Card 3 */}
-              <div className="rounded-lg shadow-lg overflow-hidden flex items-center">
+              <div
+                className="rounded-lg shadow-lg overflow-hidden flex items-center"
+                data-aos="fade-up"
+                data-aos-delay="1000"
+              >
                 <div className="p-6">
                   <FaTools className="text-6xl text-white mb-4" />
                   <h3 className="text-lg font-semibold text-white">
@@ -291,7 +334,10 @@ const App = () => {
 
       {/* Services section */}
       <div id="services" className="bg-gray-800 py-12">
-        <h2 className="text-3xl font-bold text-center mb-8 text-white">
+        <h2
+          className="text-3xl font-bold text-center mb-8 text-white"
+          data-aos="fade-up"
+        >
           Our Services
         </h2>
         <div className="flex flex-wrap justify-center gap-6">
@@ -299,6 +345,8 @@ const App = () => {
             <div
               key={service.id}
               className="bg-white p-6 rounded-lg shadow-md w-80 text-center"
+              data-aos="fade-right"
+              data-aos-delay="900"
             >
               {service.icon}
               <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
@@ -312,12 +360,23 @@ const App = () => {
       <div id="blog" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="font-heading mb-4 bg-orange-100 text-orange-800 px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest  uppercase title-font">
+            <h2
+              className="font-heading mb-4 bg-orange-100 text-orange-800 px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest  uppercase title-font"
+              data-aos="fade-up"
+            >
               Blog
             </h2>
             <div className="flex items-center justify-center mt-2">
-              <FaRegNewspaper className="text-4xl text-white mr-2" />
-              <p className="text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+              <FaRegNewspaper
+                className="text-4xl text-white mr-2"
+                data-aos="fade-up"
+                data-aos-delay="1000"
+              />
+              <p
+                className="text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl"
+                data-aos="fade-up"
+                data-aos-delay="1000"
+              >
                 Baca Artikel Terbaru Kami
               </p>
             </div>
@@ -327,6 +386,8 @@ const App = () => {
               <div
                 key={post.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
+                data-aos="fade-right"
+                data-aos-delay="900"
               >
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900">
@@ -350,7 +411,10 @@ const App = () => {
 
       {/* Testimony section */}
       <div id="testimony" className="bg-gray-800 py-12">
-        <h2 className="text-3xl font-bold text-center mb-8 text-white">
+        <h2
+          className="text-3xl font-bold text-center mb-8 text-white"
+          data-aos="fade-down"
+        >
           What Our Clients Say
         </h2>
         <div className="flex flex-wrap justify-center gap-6">
@@ -358,6 +422,7 @@ const App = () => {
             <div
               key={testimony.id}
               className="bg-white p-6 rounded-lg shadow-md w-80 relative"
+              data-aos="fade-down"
             >
               <FaQuoteLeft className="text-gray-500 text-3xl absolute -top-3 -left-3" />
               <p className="text-gray-700 mb-4">{testimony.testimony}</p>
@@ -376,7 +441,10 @@ const App = () => {
 
       {/* FAQ section */}
       <div className="bg-gray-800 py-12">
-        <h2 className="text-3xl font-bold text-center mb-8 text-white">
+        <h2
+          className="text-3xl font-bold text-center mb-8 text-white"
+          data-aos="fade-up"
+        >
           Frequently Asked Questions
         </h2>
         <div className="max-w-3xl mx-auto">
@@ -384,6 +452,8 @@ const App = () => {
             <div
               key={faq.id}
               className="bg-white mb-4 p-4 rounded-lg shadow-md"
+              data-aos="fade-up"
+              data-aos-delay="1000"
             >
               <div
                 className="flex justify-between items-center cursor-pointer"
@@ -408,18 +478,27 @@ const App = () => {
       <section id="contact" className="py-12 bg-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <p className="text-base leading-6 text-indigo-500 font-semibold tracking-wide uppercase">
+            <p
+              className="text-base leading-6 text-indigo-500 font-semibold tracking-wide uppercase"
+              data-aos="fade-up"
+            >
               Contact Us
             </p>
-            <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10">
+            <h3
+              className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10"
+              data-aos="fade-up"
+            >
               Get in touch
             </h3>
-            <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+            <p
+              className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto"
+              data-aos="fade-up"
+            >
               Whatever questions you have or information you need, feel free to
               reach out. Were here to help!
             </p>
           </div>
-          <div className="mt-12">
+          <div className="mt-12" data-aos="fade-right" data-aos-delay="1000">
             <form
               action="#"
               method="POST"
