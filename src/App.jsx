@@ -336,7 +336,7 @@ const App = () => {
       <div id="services" className="bg-gray-800 py-12">
         <h2
           className="text-3xl font-bold text-center mb-8 text-white"
-          data-aos="fade-up"
+          data-aos="fade-right"
         >
           Our Services
         </h2>
@@ -362,19 +362,19 @@ const App = () => {
           <div className="lg:text-center">
             <h2
               className="font-heading mb-4 bg-orange-100 text-orange-800 px-4 py-2 rounded-lg md:w-64 md:mx-auto text-xs font-semibold tracking-widest  uppercase title-font"
-              data-aos="fade-up"
+              data-aos="fade-right"
             >
               Blog
             </h2>
             <div className="flex items-center justify-center mt-2">
               <FaRegNewspaper
                 className="text-4xl text-white mr-2"
-                data-aos="fade-up"
+                data-aos="fade-right"
                 data-aos-delay="1000"
               />
               <p
                 className="text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl"
-                data-aos="fade-up"
+                data-aos="fade-right"
                 data-aos-delay="1000"
               >
                 Baca Artikel Terbaru Kami
@@ -480,19 +480,19 @@ const App = () => {
           <div className="lg:text-center">
             <p
               className="text-base leading-6 text-indigo-500 font-semibold tracking-wide uppercase"
-              data-aos="fade-up"
+              data-aos="fade-right"
             >
               Contact Us
             </p>
             <h3
               className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10"
-              data-aos="fade-up"
+              data-aos="fade-right"
             >
               Get in touch
             </h3>
             <p
               className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto"
-              data-aos="fade-up"
+              data-aos="fade-right"
             >
               Whatever questions you have or information you need, feel free to
               reach out. Were here to help!
