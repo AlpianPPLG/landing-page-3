@@ -430,7 +430,9 @@ const App = () => {
               <div className="flex items-center mt-4">
                 <FaUserCircle className="text-gray-400 text-3xl mr-3" />
                 <div>
-                  <h3 className="font-semibold">{testimony.name}</h3>
+                  <h3 className="font-semibold text-sky-400">
+                    {testimony.name}
+                  </h3>
                   <p className="text-gray-500 text-sm">{testimony.role}</p>
                 </div>
               </div>
